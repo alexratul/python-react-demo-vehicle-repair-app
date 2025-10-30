@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env.sample
+
+    volumes:
+      - api_data:/app/database
+
+    ports:
+      - "8000:8000"
+
+volumes:
+  api_data:
